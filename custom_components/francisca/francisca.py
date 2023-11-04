@@ -1,8 +1,14 @@
+from homeassistant.helpers.typing import HomeAssistantType
+import logging
+
 DOMAIN = "francisca"
 
 
-async def async_setup(hass, config):
-    hass.states.async_set("hello_state.world", "Paulus")
+async def setup(hass: HomeAssistantType, config: dict):
+    hass.states.async_set("francisca.state", "on")
+    entity = config["entity"]
+
+    logging.info(f"Entity: {entity}")
 
     # Return boolean to indicate that initialization was successful.
     return True
